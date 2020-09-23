@@ -13,8 +13,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages/posts');
+Route::get('/', function() {
+
+    $posts = [
+        [
+            'id' => 1,
+            'title' => 'You are done.',
+            'content' => '<b>Fired. Do not show your face dasdsad lorem</b> Coś tam, coś tam?',
+            'date' => '2019-02-20 10:59:52.234580 UTC (+00:00)',
+            'type' => 'text',
+            'image' => null
+        ],
+        [
+            'id' => 1,
+            'title' => 'You are done.',
+            'content' => '<b>Fired. Do not show your face dasdsad lorem</b> Coś tam, coś tam?',
+            'date' => '2019-02-20 10:59:52.234580 UTC (+00:00)',
+            'type' => 'photo',
+            'image' => '/images/image-01.jpg'
+        ]
+    ];
+    return view('pages/posts', [
+        'posts' => $posts // można zastosować funkcję compact('posts')
+    ]);
+
 });
 
 Route::get('/about', function () {
