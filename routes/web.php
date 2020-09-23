@@ -19,7 +19,7 @@ Route::get('/', function() {
         [
             'id' => 1,
             'title' => 'You are done.',
-            'content' => '<b>Pogrubiony tekst</b> Coś tam, coś tam?',
+            'content' => '<b>Pogrubiony tekst</b> Chciałbyś wiedzieć jak to się robi? Zajrzyj tutaj, a się dowiesz!',
             'date' => '2019-02-20 10:59:52.234580 UTC (+00:00)',
             'type' => 'text',
             'image' => null
