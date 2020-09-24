@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController; // laravel 8.0
 
 /*
 |--------------------------------------------------------------------------
@@ -13,31 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function() {
-
-    $posts = [
-        [
-            'id' => 1,
-            'title' => 'You are done.',
-            'content' => '<b>Pogrubiony tekst</b> Chciałbyś wiedzieć jak to się robi? Zajrzyj tutaj, a się dowiesz!',
-            'date' => '2019-02-20 10:59:52.234580 UTC (+00:00)',
-            'type' => 'text',
-            'image' => null
-        ],
-        [
-            'id' => 1,
-            'title' => 'You are done.',
-            'content' => '<b>Pogrubiony tekst 2</b> Coś tam, coś tam?',
-            'date' => '2019-02-20 10:59:52.234580 UTC (+00:00)',
-            'type' => 'photo',
-            'image' => '/images/image-01.jpg'
-        ]
-    ];
-    return view('pages/posts', [
-        'posts' => $posts // można zastosować funkcję compact('posts')
-    ]);
-
-});
+Route::get('/', [PostController::class, 'index']); // https://laracasts.com/discuss/channels/code-review/illuminatecontractscontainerbindingresolutionexception-target-class-usercontroller-does-not-exist
 
 Route::get('/about', function () {
     return view('pages/about');
