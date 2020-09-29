@@ -16,7 +16,7 @@
                 <a href="{{ url('/') }}" class="logo">E&F Blog</a>
                     <nav>
                         <ul>
-                            <li><a href="{{ route('about') }}">O nas</a></li>
+                            <li><a href="{{ route('about') }}"{!! request()->routeIs('about') ? ' class="is-active"' : '' !!}>O nas</a></li>
                             <li><a href="#">Wesprzyj Fisia</a></li>
                             <li><a href="#">Zaloguj się</a></li>
                             <li><a href="#">Kontakt</a></li>
@@ -36,7 +36,7 @@
             </section>
             <footer class="mainFooter">
                 <div class="wrapper">
-                    <p>&copy; {{ date('Y') }} LaraBlogger</p>
+                    <p>&copy; {{ date('Y') }} E&F Blog</p>
                     <nav>
                         <ul>
                             <li><a href="{{ route('about') }}">About me</a></li>
@@ -45,7 +45,7 @@
                             <li><a href="#">RSS</a></li>
                         </ul>
                     </nav>
-                    <p class="author">All rights reserved <a href="{{ url('/') }}">LaraBlogger</a></p>
+                    <p class="author">All rights reserved <a href="{{ url('/') }}">E&F Blog</a></p>
                 </div>
             </footer>
         </div>

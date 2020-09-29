@@ -14,8 +14,10 @@ use App\Http\Controllers\PostController; // laravel 8.0
 |
 */
 
-Route::get('/', [PostController::class, 'index']); // https://laracasts.com/discuss/channels/code-review/illuminatecontractscontainerbindingresolutionexception-target-class-usercontroller-does-not-exist
-Route::get('/posts/{post}', [PostController::class, 'show']);
+Route::get('/', [PostController::class, 'index']);
+// https://laracasts.com/discuss/channels/code-review/illuminatecontractscontainerbindingresolutionexception-target-class-usercontroller-does-not-exist
+
+Route::get('/post/{slug}', [PostController::class, 'show'])->name('posts/single');
 
 Route::get('/about', function () {
     return view('pages/about');

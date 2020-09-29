@@ -12,12 +12,17 @@ class Post extends Model
 
     // bez obu poniższych rzeczy nie ani jednej z poniższych rzeczy to tinker nie zadziała
     protected $guarded = []; // guarded -> jeżeli coś tu mamy wprowadzone to blokuje nam wgranie do bazy danych, jeżeli nie ma nic, to wszystko nam przepuszcza
+    protected $dates = ['date'];
     
     # protected $fillable = ['title']; // fillable -> przeciwieństwo guarded, zezwala tylko na wgranie komórek, które są tu wpisane
 
     public function setTitleAttribute($value) {
         $this->attributes['title'] = $value;
         $this->attributes['slug'] = Str::slug($value);
+    }
+
+    public function getExcerptAttribute() {
+        return Str::limit(strip_tags($this->content), 300);
     }
 
     # HOW TO

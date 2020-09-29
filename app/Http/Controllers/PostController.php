@@ -18,8 +18,10 @@ class PostController extends Controller
         ]);
     }
 
-    public function show(Post $post) {
+    public function show($slug) {
         
+        $post = Post::whereSlug($slug)->firstOrFail();
+
         # dodać wyżej Type Hinting LUB
         // $post = Post::findOrFail($id);
         # LUB
