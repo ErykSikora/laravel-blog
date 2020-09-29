@@ -18,13 +18,13 @@ class PostController extends Controller
         ]);
     }
 
-    public function show($id) {
-        $post = Post::findOrFail($id);
-
+    public function show(Post $post) {
+        
+        # dodać wyżej Type Hinting LUB
+        // $post = Post::findOrFail($id);
+        # LUB
         // $post = Post::find($id);
         // if (is_null($post)) return abort(404); // abort zwraca błąd laravel
-
-        dd($post);
 
         return view('pages/post', [
             'post' => $post
