@@ -22,3 +22,7 @@ Route::get('/post/{slug}', [PostController::class, 'show'])->name('posts/single'
 Route::get('/about', function () {
     return view('pages/about');
 })->name('about');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
