@@ -69,19 +69,14 @@
             </article>
             @endif
         @endforeach
+
+        @include('partials/pagination', [
+            'pagination' => $posts
+        ])
+
     @else
     <div class="wrapper">
         <p>Nie dodano żadnych wpisów</p>
     </div>
     @endif
-    <div class="wrapper">
-        <div class="pagination">
-            <a href="//larablogger.test:3002/?p=1" class="paginationPrev" title="Previous">
-                <i class="fa fa-caret-left"></i>&nbsp;&nbsp;&nbsp;Previous
-            </a>
-            <a href="#" class="paginationNext" title="Next">
-            Next&nbsp;&nbsp;&nbsp;<i class="fa fa-caret-right"></i>
-            </a>
-        </div>
-    </div>
 @endsection

@@ -11,7 +11,7 @@ class PostController extends Controller
         
         # return $posts = Post::latest('date')->toSql(); //shows prepared sql command
 
-        $posts = Post::latest('date')->get(); // https://laravel.com/docs/8.x/collections#available-methods
+        $posts = Post::latest('date')->paginate(3); // https://laravel.com/docs/8.x/collections#available-methods
 
         return view('pages/posts', [
             'posts' => $posts // można zastosować funkcję compact('posts')
