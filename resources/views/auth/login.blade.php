@@ -1,4 +1,35 @@
-<x-guest-layout>
+@extends('layouts/default')    
+
+@section('title', 'Strona Główna')
+
+@section('content')
+
+<div class="wrapper">
+    <div class="rte">
+        <h1>Login</h1>
+    </div>
+
+    <form method="POST" action="{{ route('login') }}">
+        <div class="form-fieldset">
+            <input class="form-field is-invalid" type="email" name="email" placeholder="Your e-mail">
+        </div>
+        <div class="form-fieldset">
+            <input class="form-field" type="password" name="password" placeholder="Password">
+        </div>
+        <button class="button">Submit</button>
+    </form>
+
+    --{{ __('Login') }}--
+
+    <div class="rte mt">
+        <p>Don't have an account? <a href="{{ route('register') }}">Register now.</a><br>Forgot your password? <a href="//larablogger.test:3002/reset">Reset it here.</a></p>
+    </div>
+</div>
+
+@endsection
+
+
+{{-- <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
@@ -45,4 +76,4 @@
             </div>
         </form>
     </x-jet-authentication-card>
-</x-guest-layout>
+</x-guest-layout> --}}

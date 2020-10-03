@@ -1,4 +1,44 @@
-<x-guest-layout>
+@extends('layouts/default')    
+
+@section('title', 'Rejestracja')
+
+@section('content')
+
+{{-- @php
+
+echo '<pre>';
+print_r($errors);
+echo '</pre>';
+
+@endphp --}}
+
+<div class="wrapper">
+    <div class="rte">
+        <h1>Register</h1>
+    </div>
+
+    <form method="POST" action="{{ route('register') }}">
+        @csrf
+        <div class="form-fieldset">
+        <input class="form-field{{ $errors->has('email') ? ' is-invalid' : '' }}" type="email" name="email" placeholder="Your e-mail">
+        </div>
+        <div class="form-fieldset">
+            <input class="form-field{{ $errors->has('name') ? ' is-invalid' : '' }}" type="text" name="name" placeholder="Your name">
+        </div>
+        <div class="form-fieldset">
+            <input class="form-field{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" name="password" placeholder="Password">
+        </div>
+        <div class="form-fieldset">
+            <input class="form-field" type="password" name="password_confirmation" placeholder="Repeat password">
+        </div>
+        <button class="button">Submit</button>
+    </form>
+</div>
+
+@endsection
+
+
+{{-- <x-guest-layout>7
     <x-jet-authentication-card>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
@@ -40,4 +80,4 @@
             </div>
         </form>
     </x-jet-authentication-card>
-</x-guest-layout>
+</x-guest-layout> --}}
