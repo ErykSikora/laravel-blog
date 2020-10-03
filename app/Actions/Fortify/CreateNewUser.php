@@ -28,6 +28,8 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
+        session()->flash('message', "Cześć {$input['name']}, dziękówa za rejestrację!"); #TODO: przenieść to stąd!
+
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],
