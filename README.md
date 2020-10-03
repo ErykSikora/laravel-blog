@@ -38,7 +38,9 @@ soon..
 
 1. Open the XAMPP Control Panel
 2. Open Apache _Config_
-3. Find _DocumentRoot_ and change from `DocumentRoot "[...path...]/xampp/htdocs/blog/public"` to `DocumentRoot "D:/Programy/xampp/htdocs/laravel-magazine/public"`
+3. Find _DocumentRoot_ and change from  
+   `DocumentRoot "[...path...]/xampp/htdocs/blog/public"` to  
+   `DocumentRoot "D:/Programy/xampp/htdocs/laravel-magazine/public"`
 
 Thus the `localhost` link will be the main link of the page (type it in the browser).
 
