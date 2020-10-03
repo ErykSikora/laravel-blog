@@ -17,9 +17,8 @@
                 <a href="{{ url('/') }}" class="logo">E&F Blog</a>
                     <nav>
                         <ul>
-                            <li><a href="{{ route('about') }}"{!! request()->routeIs('about') ? ' class="is-active"' : '' !!}>O nas</a></li>
-                            <li><a href="#">Wesprzyj Fisia</a></li>
-                            <li><a href="#">Zaloguj się</a></li>
+                            <li><a href="{{ route('about') }}"{!! request()->routeIs('about') ? ' class="is-active"' : '' !!}">O nas</a></li>
+                            <li><a href="{{ route('login') }}"{!! request()->routeIs('login') ? ' class="is-active"' : '' !!}">Zaloguj się</a></li>
                             <li><a href="#">Kontakt</a></li>
                             <li><a href="#">RSS <i class="fa fa-rss-square"></i></a></li>
                         </ul>

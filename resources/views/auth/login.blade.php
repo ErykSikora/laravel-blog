@@ -1,28 +1,35 @@
 @extends('layouts/default')    
 
-@section('title', 'Strona Główna')
+@section('title', 'Logowanie')
 
 @section('content')
 
+{{-- @php
+
+echo '<pre>';
+print_r($errors);
+echo '</pre>';
+
+@endphp --}}
+
 <div class="wrapper">
     <div class="rte">
-        <h1>Login</h1>
+        <h1>Logowanie</h1>
     </div>
 
     <form method="POST" action="{{ route('login') }}">
+        @csrf
         <div class="form-fieldset">
-            <input class="form-field is-invalid" type="email" name="email" placeholder="Your e-mail">
+            <input class="form-field{{ $errors->has('email') ? ' is-invalid' : '' }}" type="email" name="email" placeholder="Your e-mail" value={{ old('email') }}>
         </div>
         <div class="form-fieldset">
-            <input class="form-field" type="password" name="password" placeholder="Password">
+            <input class="form-field{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" name="password" placeholder="Password">
         </div>
-        <button class="button">Submit</button>
+        <button class="button">Zaloguj się</button>
     </form>
 
-    --{{ __('Login') }}--
-
     <div class="rte mt">
-        <p>Don't have an account? <a href="{{ route('register') }}">Register now.</a><br>Forgot your password? <a href="//larablogger.test:3002/reset">Reset it here.</a></p>
+        <p>Nie masz konta? <a href="{{ route('register') }}">Zarejestruj się.</a><br>Zapomniałeś hasła? <a href="/reset">Zresetuj.</a></p>
     </div>
 </div>
 

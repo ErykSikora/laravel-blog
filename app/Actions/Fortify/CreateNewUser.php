@@ -3,9 +3,12 @@
 namespace App\Actions\Fortify;
 
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
+
+// CreateNewUser is the successor to the old RegisterController.php
 
 class CreateNewUser implements CreatesNewUsers
 {
