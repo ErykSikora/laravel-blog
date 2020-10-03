@@ -14,24 +14,24 @@ echo '</pre>';
 
 <div class="wrapper">
     <div class="rte">
-        <h1>Register</h1>
+        <h1>Rejestracja</h1>
     </div>
 
     <form method="POST" action="{{ route('register') }}">
         @csrf
         <div class="form-fieldset">
-        <input class="form-field{{ $errors->has('email') ? ' is-invalid' : '' }}" type="email" name="email" placeholder="Your e-mail">
+        <input class="form-field{{ $errors->has('email') ? ' is-invalid' : '' }}" type="email" name="email" placeholder="Adres e-mail" value="{{ old('email') }}">
         </div>
         <div class="form-fieldset">
-            <input class="form-field{{ $errors->has('name') ? ' is-invalid' : '' }}" type="text" name="name" placeholder="Your name">
+            <input class="form-field{{ $errors->has('name') ? ' is-invalid' : '' }}" type="text" name="name" placeholder="Imię i nazwisko" value="{{ old('name') }}">
         </div>
         <div class="form-fieldset">
-            <input class="form-field{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" name="password" placeholder="Password">
+            <input class="form-field{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" name="password" placeholder="Hasło">
         </div>
         <div class="form-fieldset">
-            <input class="form-field" type="password" name="password_confirmation" placeholder="Repeat password">
+            <input class="form-field" type="password" name="password_confirmation" placeholder="Powtórz hasło">
         </div>
-        <button class="button">Submit</button>
+        <button class="button">Wyślij</button>
     </form>
 </div>
 
