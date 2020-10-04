@@ -1,4 +1,35 @@
-<x-guest-layout>
+@extends('layouts/default')    
+
+@section('title', 'Resetowanie hasła')
+
+@section('content')
+
+<div class="wrapper">
+    <div class="rte">
+        <h1>Wpisz nowe hasło</h1>
+    </div>
+
+    <form method="POST" action="{{ route('password.update') }}">
+        @csrf
+        <input type="hidden" name="token" value="{{ $request->route('token') }}">
+        <div class="form-fieldset">
+            <input class="form-field{{ $errors->has('email') ? ' is-invalid' : '' }}" type="email" name="email" value="{{ old('email', $request->email) }}" placeholder="Wpisz adres e-mail">
+        </div>
+        <div class="form-fieldset">
+            <input class="form-field" type="password" name="password" placeholder="Wpisz nowe hasło">
+        </div>
+        <div class="form-fieldset">
+            <input class="form-field" type="password" name="password_confirmation" placeholder="Potwierdź nowe hasło">
+        </div>
+        <button class="button">Wyślij</button>
+    </form>
+</div>
+
+
+@endsection
+
+
+{{-- <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
@@ -33,4 +64,4 @@
             </div>
         </form>
     </x-jet-authentication-card>
-</x-guest-layout>
+</x-guest-layout> --}}

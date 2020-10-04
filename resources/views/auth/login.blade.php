@@ -29,7 +29,7 @@ echo '</pre>';
     </form>
 
     <div class="rte mt">
-        <p>Nie masz konta? <a href="{{ route('register') }}">Zarejestruj się.</a><br>Zapomniałeś hasła? <a href="/reset">Zresetuj.</a></p>
+        <p>Nie masz konta? <a href="{{ route('register') }}">Zarejestruj się.</a><br>Zapomniałeś hasła? <a href="{{ route('password.request') }}">Zresetuj.</a></p>
     </div>
 </div>
 

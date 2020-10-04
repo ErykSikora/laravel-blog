@@ -56,6 +56,12 @@
             </footer>
         </div>
 
+        <form id="logoutForm" method="POST" action="{{ route('password.request') }}">
+            Zapomniałem hasła
+            @csrf
+            <button type="submit">send</button>
+        </form>
+
         @auth
         <form id="logoutForm" method="POST" action="{{ route('logout') }}">
             @csrf

@@ -1,4 +1,4 @@
-# Web Magazine
+# Laravel Web Magazine
 
 Meet the project created in laravel.  
 Our goal is to create an online magazine offering registration, the ability to add, rate and comment on entries, integration of widgets with an external API and other functionalities
@@ -17,7 +17,8 @@ soon..
 
 -   PHP >= 7.x
 -   composer
--   XAMPP (or another Apache & MySQL) [[install help]](xampp-configuration-panel)
+-   XAMPP (or another Apache & MySQL) [[install help]](#xampp-configuration-panel)
+-   e-mail account (SMPT) for example: [mailtrap.io](https://mailtrap.io/)
 
 ## How to install?
 
@@ -34,7 +35,7 @@ soon..
 
 `php artisan serve` - **Warning!** may not support the database!
 
-### XAMPP configuration manual
+### XAMPP configuration manual (recommended)
 
 1. Open the XAMPP Control Panel
 2. Open Apache _Config_
@@ -44,19 +45,41 @@ soon..
 
 Thus the `localhost` link will be the main link of the page (type it in the browser).
 
+### Mailtrap configuration
+
+Use it if you don't want to use real SMTP data.
+
+1. Sign up or login here: https://mailtrap.io/
+2. In dashboard panel go to **Demo inbox**
+3. Copy _username_ and _password_ and paste to the _.env_ file, for example:
+
+```
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=*****
+MAIL_PASSWORD=*****
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=contact@larazine.com
+MAIL_FROM_NAME=Larazine
+```
+
+4. Mail is ready to use
+
 ### Setting the .env file
 
 The env file was not included in the repository for security reasons (stores all passwords and application data).  
 Recommended settings for the XAMPP database:
 
-````DB_CONNECTION=mysql
+```
+DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=laravel_magazine
 DB_USERNAME=root
-DB_PASSWORD=```
-````
+DB_PASSWORD=
+```
 
 ### Database migrations
 
-#TODO: migrations and faker description
+#TODO: migrations and faker (in php tinker) description

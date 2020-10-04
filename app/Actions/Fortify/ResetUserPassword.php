@@ -23,6 +23,8 @@ class ResetUserPassword implements ResetsUserPasswords
             'password' => $this->passwordRules(),
         ])->validate();
 
+        session()->flash('message', "{$user->name}, Twoje hasło zostało zresetowane!");
+
         $user->forceFill([
             'password' => Hash::make($input['password']),
         ])->save();
