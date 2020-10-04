@@ -1,3 +1,21 @@
+@extends('layouts/default')
+@section('title', 'Zweryfikuj swój email')
+
+@section('content')
+<div class="wrapper">
+    <div class="rte">
+        <h1>Weryfikacja adresu mailowego</h1>
+    </div>
+
+    <div class="rte mt">
+        <form method="POST" action="{{ route('verification.send') }}">
+            @csrf
+            <p>Nie dostałeś maila? <button type="submit">Wyślij ponownie</button></p>
+        </form>
+    </div>
+</div>
+@endsection
+{{-- 
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
@@ -34,4 +52,4 @@
             </form>
         </div>
     </x-jet-authentication-card>
-</x-guest-layout>
+</x-guest-layout> --}}
