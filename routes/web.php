@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController; // laravel 8.0
-use App\Http\Controllers\Auth\AuthenticatedSessionController; // laravel 8.0
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
+use App\Http\Controllers\PostController; // laravel 8.0
+use App\Http\Controllers\Auth\AuthenticatedSessionController; // laravel 8.0
+use App\Http\Controllers\Admin\PostController as AdminPostController; // laravel 8.0
 
 
 /*
@@ -26,6 +27,10 @@ Route::get('/post/{slug}', [PostController::class, 'show'])->name('posts/single'
 Route::get('/about', function () {
     return view('pages/about');
 })->name('about');
+
+// -- admin view
+
+Route::get('admin', [AdminPostController::class, 'create'])->middleware('auth')->name('admin.create');
 
 // -- user authentication
 

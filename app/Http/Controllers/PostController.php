@@ -7,6 +7,10 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
+    public function __construct() {
+        $this->middleware('verified')->only('show');
+    }
+
     public function index() {
         
         # return $posts = Post::latest('date')->toSql(); //shows prepared sql command
