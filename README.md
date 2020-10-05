@@ -41,7 +41,7 @@ soon..
 2. Open Apache _Config_
 3. Find _DocumentRoot_ and change from  
    `DocumentRoot "[...path...]/xampp/htdocs/blog/public"` to  
-   `DocumentRoot "D:/Programy/xampp/htdocs/laravel-magazine/public"`
+   `DocumentRoot "[...path...]/xampp/htdocs/laravel-magazine/public"`
 
 Thus the `localhost` link will be the main link of the page (type it in the browser).
 
@@ -49,7 +49,7 @@ Thus the `localhost` link will be the main link of the page (type it in the brow
 
 Use it if you don't want to use real SMTP data.
 
-1. Sign up or login here: https://mailtrap.io/
+1. Sign up or login here: [mailtrap.io](https://mailtrap.io/)
 2. In dashboard panel go to **Demo inbox**
 3. Copy _username_ and _password_ and paste to the _.env_ file, for example:
 

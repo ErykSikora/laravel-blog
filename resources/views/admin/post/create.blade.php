@@ -8,9 +8,10 @@
         <h1>Dodaj nowy wpis</h1>
     </div>
 
-    <form action="#">
+    <form method="POST" action="{{ route('admin.create') }}">
+        @csrf
         <div class="form-fieldset">
-            <input class="form-field" type="title" name="text" placeholder="Title">
+            <input class="form-field" type="text" name="title" placeholder="Tytuł">
         </div>
         <div class="form-fieldset">
             <div class="form-select">
@@ -34,18 +35,18 @@
             <input type="file" name="image">
         </div>
         <div class="form-fieldset is-wide">
-            <textarea class="form-textarea" name="content" placeholder="Content"></textarea>
+            <textarea class="form-textarea" name="content" placeholder="Tekst"></textarea>
         </div>
         <button class="button">Dodaj wpis</button>
     </form>
 
-    <div class="rte mt">
+    {{-- <div class="rte mt">
         <h1>Usuwanie posta</h1>
     </div>
 
     <form action="#">
         <button class="button button--danger">Usuń</button>
-    </form>
+    </form> --}}
 </div>
 
 @endsection

@@ -11,7 +11,8 @@ class Post extends Model
     use HasFactory;
 
     // bez obu poniższych rzeczy nie ani jednej z poniższych rzeczy to tinker nie zadziała
-    protected $guarded = []; // guarded -> jeżeli coś tu mamy wprowadzone to blokuje nam wgranie do bazy danych, jeżeli nie ma nic, to wszystko nam przepuszcza
+    # protected $guarded = []; // guarded -> jeżeli coś tu mamy wprowadzone to blokuje nam wgranie do bazy danych, jeżeli nie ma nic, to wszystko nam przepuszcza
+    protected $fillable = ['title', 'type', 'date', 'content', 'image'];
     protected $dates = ['date'];
     
     # protected $fillable = ['title']; // fillable -> przeciwieństwo guarded, zezwala tylko na wgranie komórek, które są tu wpisane

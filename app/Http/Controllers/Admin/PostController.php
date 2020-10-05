@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -35,7 +36,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $post = Post::create($request->all());
+        session()->flash('message', 'Post został dodany');
+
+        return redirect(route('posts/single', $post->slug));
     }
 
     /**

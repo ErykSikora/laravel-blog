@@ -7,7 +7,6 @@ use App\Http\Controllers\PostController; // laravel 8.0
 use App\Http\Controllers\Auth\AuthenticatedSessionController; // laravel 8.0
 use App\Http\Controllers\Admin\PostController as AdminPostController; // laravel 8.0
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,7 +29,8 @@ Route::get('/about', function () {
 
 // -- admin view
 
-Route::get('admin', [AdminPostController::class, 'create'])->middleware('auth')->name('admin.create');
+Route::get('admin', [AdminPostController::class, 'create'])->middleware('verified')->name('admin.create');
+Route::post('admin', [AdminPostController::class, 'store']);
 
 // -- user authentication
 
