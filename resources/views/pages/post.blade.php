@@ -28,7 +28,7 @@
                     <div class="flex flex-sb">
                         <p class="date"><i class="fa fa-clock-o"></i> 1 day ago</p>
                         <p>
-                            <a href="#" class="link"><i class="fa fa-edit"></i> Edytuj</a>
+                            <a href="{{ route('admin.edit', $post->id) }}" class="link"><i class="fa fa-edit"></i> Edytuj</a>
                         </p>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                     <div class="flex flex-sb">
                         <p class="date"><i class="fa fa-clock-o"></i> SS{{ $post->date->diffForHumans() }}</p>
                         <p>
-                            <a href="#" class="link"><i class="fa fa-edit"></i> Edytuj</a>
+                            <a href="{{ route('admin.edit', $post->id) }}" class="link"><i class="fa fa-edit"></i> Edytuj</a>
                         </p>
                     </div>
                 </div>
