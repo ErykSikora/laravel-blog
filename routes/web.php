@@ -32,6 +32,7 @@ Route::get('/about', function () {
 Route::get('admin', [AdminPostController::class, 'create'])->middleware('verified')->name('admin.create');
 Route::post('admin', [AdminPostController::class, 'store']);
 Route::get('admin/edit/{id}', [AdminPostController::class, 'edit'])->name('admin.edit');
+Route::put('admin/edit/{id}', [AdminPostController::class, 'update']);
 
 // -- user authentication
 

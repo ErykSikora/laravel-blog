@@ -6,9 +6,20 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
+    protected function validator($data) {
+        return Validator::make($data, [
+            'title' => 'required|max:255',
+            'type' => 'required|in:text,photo',
+            'date' => 'nullable|date',
+            'image' => 'nullable',
+            'content' => 'required'
+        ]);
+    }
+
     // /**
     //  * Display a listing of the resource.
     //  *
@@ -37,15 +48,9 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'title' => 'required|max:255',
-            'type' => 'required|in:text,photo',
-            'date' => 'nullable|date',
-            'image' => 'nullable',
-            'content' => 'required'
-        ]);
+        $data = $this->validator($request->all())->validate();
 
-        $data = Arr::add($data, 'date', now());
+        // $data = Arr::add($data, 'date', now());
 
         // dd($request->all());
         $post = Post::create($request->all());
@@ -86,7 +91,12 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        $data = $this->validator($request->all())->validate();
+        $post->update($data);
+
+        return back()->with('message', 'Post został zaktualizowany');
     }
 
     /**

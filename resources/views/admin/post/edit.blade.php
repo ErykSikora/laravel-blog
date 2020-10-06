@@ -8,8 +8,9 @@
         <h1>Edycja wpisu</h1>
     </div>
 
-    <form method="POST" action="#">
+    <form method="POST" action="{{ route('admin.edit', $post->id) }}">
         @csrf
+        {{ method_field('PUT') }}
         <div class="form-fieldset">
             <input class="form-field{{ $errors->has('title') ? ' is-invalid' : '' }}" type="text" name="title" placeholder="Tytuł" value="{{ $post->title }}">
         </div>
