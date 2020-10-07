@@ -45,13 +45,15 @@
         <button class="button">Dodaj wpis</button>
     </form>
 
-    {{-- <div class="rte mt">
+    <div class="rte mt">
         <h1>Usuwanie posta</h1>
     </div>
 
-    <form action="#">
-        <button class="button button--danger">Usuń</button>
-    </form> --}}
+    <form method="POST" action="{{ route('admin.delete', $post->id) }}">
+        @csrf
+        {{ method_field('DELETE') }}
+        <button class="button button--danger" onclick="return confirm('Czy na pewno usunąć wpis?');">Usuń</button>
+    </form>
 </div>
 
 @endsection
