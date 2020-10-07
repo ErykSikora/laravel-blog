@@ -15,7 +15,7 @@ class PostController extends Controller
             'title' => 'required|max:255',
             'type' => 'required|in:text,photo',
             'date' => 'nullable|date',
-            'image' => 'nullable',
+            'image' => 'nullable|image|max:1024',
             'content' => 'required'
         ]);
     }
@@ -53,6 +53,12 @@ class PostController extends Controller
         // $data = Arr::add($data, 'date', now());
 
         // dd($request->all());
+
+        if (isset($data['image'])) {
+            $path = $request->file('image')->store('photos');
+            $data['image'] = $path;
+        }
+
         $post = Post::create($request->all());
         session()->flash('message', 'Post został dodany');
 
@@ -93,7 +99,13 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        $data = $this->validator($request->all())->validate();
+        $data = $this->validator($request
+        ->all())->validate();
+        if (isset($data['image'])) {
+            $path = $request->file('image')->store('photos');
+            $data['image'] = $path;
+        }
+        
         $post->update($data);
 
         return back()->with('message', 'Post został zaktualizowany');

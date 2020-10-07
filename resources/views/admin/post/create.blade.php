@@ -8,7 +8,7 @@
         <h1>Dodaj nowy wpis</h1>
     </div>
 
-    <form method="POST" action="{{ route('admin.create') }}">
+    <form method="POST" action="{{ route('admin.create') }}" enctype="multipart/form-data">
         @csrf
         <div class="form-fieldset">
             <input class="form-field{{ $errors->has('title') ? ' is-invalid' : '' }}" type="text" name="title" placeholder="Tytuł" value="{{ old('title') }}">

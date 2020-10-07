@@ -8,7 +8,7 @@
         <h1>Edycja wpisu</h1>
     </div>
 
-    <form method="POST" action="{{ route('admin.edit', $post->id) }}">
+    <form method="POST" action="{{ route('admin.edit', $post->id) }}" enctype="multipart/form-data">
         @csrf
         {{ method_field('PUT') }}
         <div class="form-fieldset">
