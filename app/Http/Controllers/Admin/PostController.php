@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -59,7 +60,7 @@ class PostController extends Controller
             $data['image'] = $path;
         }
 
-        $post = Post::create($request->all());
+        $post = Post::create($data);
         session()->flash('message', 'Post został dodany');
 
         return redirect(route('posts/single', $post->slug));
@@ -99,8 +100,8 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        $data = $this->validator($request
-        ->all())->validate();
+        $data = $this->validator($request->all())->validate();
+        
         if (isset($data['image'])) {
             $path = $request->file('image')->store('photos');
             $data['image'] = $path;
@@ -121,6 +122,7 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $post->delete();
+        Storage::delete($post->image);
         return redirect('/')->with('message', 'Wpis został usunięty');
     }
 }
