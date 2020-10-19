@@ -50,6 +50,10 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    public function isAdmin() {
+        return $this->id == 1;
+    }
+
     /**
      * The accessors to append to the model's array form.
      *
