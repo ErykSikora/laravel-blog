@@ -29,11 +29,13 @@ Route::get('/about', function () {
 
 // -- admin view
 
-Route::get('admin', [AdminPostController::class, 'create'])->middleware('verified')->name('admin.create');
-Route::post('admin', [AdminPostController::class, 'store']);
-Route::get('admin/edit/{id}', [AdminPostController::class, 'edit'])->middleware('verified')->name('admin.edit');
-Route::put('admin/edit/{id}', [AdminPostController::class, 'update']);
-Route::delete('admin/edit/{id}', [AdminPostController::class, 'destroy'])->name('admin.delete');
+Route::group(['prefix' => '/admin', 'middleware' => ['can:manage-posts']], function () {
+    Route::get('admin', [AdminPostController::class, 'create'])->middleware('verified')->name('admin.create');
+    Route::post('admin', [AdminPostController::class, 'store']);
+    Route::get('admin/edit/{id}', [AdminPostController::class, 'edit'])->middleware('verified')->name('admin.edit');
+    Route::put('admin/edit/{id}', [AdminPostController::class, 'update']);
+    Route::delete('admin/edit/{id}', [AdminPostController::class, 'destroy'])->name('admin.delete'); 
+});
 
 // -- user authentication
 
