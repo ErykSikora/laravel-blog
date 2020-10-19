@@ -44,7 +44,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $this->authorize('manage-posts');
+        // $this->authorize('manage-posts');
         return view('admin/post/create');
     }
 

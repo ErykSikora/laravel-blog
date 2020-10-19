@@ -21,11 +21,13 @@
                             <li><a href="#">Kontakt</a></li>
                             <li><a href="#">RSS <i class="fa fa-rss-square"></i></a></li>
                             @auth
-                            <li><a href="{{ route('admin.create') }}">Dodaj wpis</a></li>
                             <li><a href="#logout">Wyloguj</a></li>
                             @else
                             <li><a href="{{ route('login') }}"{!! request()->routeIs('login') ? ' class="is-active"' : '' !!}">Zaloguj się</a></li>
                             @endauth
+                            @can('manage-posts')
+                            <li><a href="{{ route('admin.create') }}">Dodaj wpis</a></li>
+                            @endcan
                         </ul>
                     </nav>
                     <form action="#" class="search">
