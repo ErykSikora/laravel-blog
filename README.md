@@ -41,7 +41,7 @@ soon..
 2. Open Apache _Config_
 3. Find _DocumentRoot_ and change from  
    `DocumentRoot "[...path...]/xampp/htdocs/blog/public"` to  
-   `DocumentRoot "[...path...]/xampp/htdocs/laravel-magazine/public"`
+   `DocumentRoot "[...path...]/xampp/htdocs/larazine/public"`
 
 Thus the `localhost` link will be the main link of the page (type it in the browser).
 
@@ -81,5 +81,10 @@ DB_PASSWORD=
 ```
 
 ### Database migrations
+
+_using `php artisan migrate:fresh` we can clear the entire database_
+
+-   importing posts: `php artisan db:seed --class=PostsTableSeeder`
+-   importing users: `php artisan db:seed --class=UsersTableSeeder`
 
 #TODO: migrations and faker (in php tinker) description
